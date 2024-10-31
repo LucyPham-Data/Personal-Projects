@@ -29,5 +29,6 @@ Some screenshot from the report:
 
 <br>
 <p>While the dataset includes more unique female names than male names, the number of baby boys born over the last 100 years has been significantly higher than that of baby girls. </p>
-<br>![image.png](/baby-names/Images/chart_6.png)
+
+![image.png](/baby-names/Images/chart_6.png)
 
