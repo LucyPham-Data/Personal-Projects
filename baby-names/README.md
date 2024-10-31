@@ -22,8 +22,9 @@ This project will answer some analytical questions:
 * How do they compare to today’s most popular names?
 
 <br>
-<p>Although the project's core content is credited to DataCamp, I expanded it by creating custom reports in Power BI and conducting further analysis on specific first names I might consider for my children. </p>
+<p>Although the project's core content is credited to DataCamp, I expanded it by writing query explanations and conclusions after every task (details in [notebook.ipynb](https://github.com/LucyPham-Data/Personal-Projects/blob/main/baby-names/notebook.ipynb) ), creating custom reports in Power BI and conducting further analysis on specific first names I might consider for my children. </p>
 
+<br>
 
 ## Some screenshots from the report:
 
@@ -39,3 +40,16 @@ The names with the highest annual counts over the 101-years period also illustra
 
 <br>
 
+I prefer my daughter's first name to start with the letter H, so the bar charts display the total number of female names beginning with H in the dataset. As a result, it’s clear that most parents have chosen "Helen" for their daughters. However, the dotted line shows that the number of girls named "Helen" has gradually declined over the 101-year period.
+
+![image.png](/baby-names/Images/chart_8.png)
+
+![image.png](/baby-names/Images/chart_9.png)
+
+<br>
+
+For boys, I would choose a name from the top male list (shown in the funnel chart). However, since Michael is very common, I've decided on James instead. The dotted line displays the number of babies named "James," which surged during the Baby Boomer generation (1940–1960), then declined significantly around the 2000s and has remained steady since.
+
+![image.png](/baby-names/Images/chart_4.png)
+
+![image.png](/baby-names/Images/chart_10.png)
