@@ -22,12 +22,12 @@ This project will answer some analytical questions:
 * How do they compare to today’s most popular names?
 
 <br>
-Although the project's core content is credited to DataCamp, I expanded it by creating custom reports in Power BI and conducting further analysis on specific first names I might consider for my children.
+<p>Although the project's core content is credited to DataCamp, I expanded it by creating custom reports in Power BI and conducting further analysis on specific first names I might consider for my children. </p>
 
 <br>
 Some screenshot from the report:
 
 <br>
-While the dataset includes more unique female names than male names, the number of baby boys born over the last 100 years has been significantly higher than that of baby girls. </p>
-![image.png](/baby-names/Images/chart_6.png)
+<p>While the dataset includes more unique female names than male names, the number of baby boys born over the last 100 years has been significantly higher than that of baby girls. </p>
+<br>![image.png](/baby-names/Images/chart_6.png)
 
