@@ -27,11 +27,15 @@ This project will answer some analytical questions:
 
 ## Some screenshots from the report:
 
-[x] While the dataset includes more unique female names than male names, the number of baby boys born over the last 100 years has been significantly higher than that of baby girls.
+While the dataset includes more unique female names than male names, the number of baby boys born over the last 100 years has been significantly higher than that of baby girls.
 
 ![image.png](/baby-names/Images/chart_6.png)
 
 <br>
-[x] .
+
+The names with the highest annual counts over the 101-years period also illustrate how long each name maintained its top-ranking position.
 
 ![image.png](/baby-names/Images/chart_7.png)
+
+<br>
+
