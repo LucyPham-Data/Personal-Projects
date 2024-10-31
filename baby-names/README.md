@@ -22,7 +22,7 @@ This project will answer some analytical questions:
 * How do they compare to today’s most popular names?
 
 <br>
-<p>Although the project's core content is credited to DataCamp, I expanded it by writing query explanations and conclusions after every task (details in [notebook.ipynb](https://github.com/LucyPham-Data/Personal-Projects/blob/main/baby-names/notebook.ipynb/) ), creating custom reports in Power BI and conducting further analysis on specific first names I might consider for my children. </p>
+<p>Although the project's core content is credited to DataCamp, I expanded it by writing query explanations and conclusions after every task (details in [notebook](https://github.com/LucyPham-Data/Personal-Projects/blob/main/baby-names/notebook.ipynb)), creating custom reports in Power BI and conducting further analysis on specific first names I might consider for my children. </p>
 
 <br>
 
