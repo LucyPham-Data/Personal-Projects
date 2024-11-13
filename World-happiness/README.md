@@ -56,6 +56,21 @@ First look at the dataset, I noticed several null values in feature columns.
 
 ![image.png](/World-happiness/Images/image3.png)
 
-<p> Since the column is numerical and a null represents a missing value rather than a true zero. I'm going to fill column with Median to keeps all rows without skewing averages drastically.
+<p> Since all feature columns are numerical and a null represents a missing value rather than a true zero. I'm going to fill column with Median to keeps all rows without skewing averages drastically.
 <p> Benefits: Provides a reasonable estimate without removing data. Median imputation is preferred when the distribution is skewed, as the median is less sensitive to outliers than the mean.
+
+![image.png](/World-happiness/Images/image4.png)
+
+<br>
+
+I used excel to perform Median() and fill all null value with Medians.
+
+<br>
+
+![image.png](/World-happiness/Images/image5.png)
+
+After ensure that no null value is available, I imported the dataset into SQL server to write query and visualize to idenify patterns and insights of the dataset.
+
+## Some screenshots from the dashboard
+
 
