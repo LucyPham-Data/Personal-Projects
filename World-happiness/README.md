@@ -1,3 +1,3 @@
 # WORLD HAPPINESS
 
-![image.png](/world-happiness/Images/image1.jpg)
+![image.jpg](/world-happiness/Images/image1.jpg)
