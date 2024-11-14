@@ -35,8 +35,7 @@
 | <code>Freedom to make life choices</code>    | double  | It reflects the extent to which individuals in a country perceive themselves to have the freedom to make decisions about their lives according to their values, beliefs, and preferences.   |
 | <code>Generosity</code>    | double  | The perception of individuals within a country regarding acts of kindness, altruism, and charitable giving.    |
 | <code>Perceptions of corruption</code>    | double  | The subjective beliefs and assessments of individuals within a country regarding the prevalence and extent of corruption in various sectors of society, including government, business, and public institutions.    |
-| <code>Dystopia + residual</code>    | double  | The “dystopia” element serves as a benchmark for the lowest achievable level of happiness given the factors included in the model. The "residual" represents the unexplained variance in happiness scores after accounting for the factors included in the model.
-   |
+| <code>Dystopia + residual</code>    | double  | The “dystopia” element serves as a benchmark for the lowest achievable level of happiness given the factors included in the model. The "residual" represents the unexplained variance in happiness scores after accounting for the factors included in the model. |
 
 <br>
 
@@ -63,13 +62,13 @@ First look at the dataset, I noticed several null values in feature columns.
 
 <br>
 
-I used excel to perform Median() and fill all null value with Medians.
+I used Excel to calculate the median with the <code>MEDIAN()</code> function and filled all null values with these median values.
 
 <br>
 
 ![image.png](/World-happiness/Images/image5.png)
 
-After ensure that no null value is available, I imported the dataset into SQL server to write query and visualize to idenify patterns and insights of the dataset.
+After verifying that no null values remained, I imported the dataset into SQL Server to run queries and create visualizations, uncovering patterns and insights within the data.
 
 ## Some screenshots from the dashboard
 
@@ -79,6 +78,50 @@ After ensure that no null value is available, I imported the dataset into SQL se
 
 <br>
 
-<p> 
+<p> These are the top 10 happiest countries globally, each column shows an average happiness score above 7 out of 10. Below, a bar chart shows the 10 least happy countries, where average scores fall below 4 out of 10. 
 
 ![image.png](/World-happiness/Images/image7.png)
+
+<br>
+
+<p> The world map illustrates levels of happiness: green for happy, yellow for neutral, and red for unhappy areas.
+
+![image.png](/World-happiness/Images/image8.png)
+
+<br>
+
+<p> Canada, where I currently live, ranks 15th among the world's happiest countries as of 2024.
+
+![image.png](/World-happiness/Images/image9.png)
+
+<br>
+
+<p> Vietnam, my home country, ranks 54th and is considered a happy country according to 2024 data.
+
+![image.png](/World-happiness/Images/image13.png)
+
+<br>
+
+<p>Afghanistan, the country-wide war ended in 2021 ranked 143th according to 2024 data.
+
+![image.png](/World-happiness/Images/image12.png)
+
+<br>
+
+<p> Counts of happy countries by region are shown in the left pie chart, while the right pie chart displays counts of the least happy countries. These visuals highlight that the happiest and wealthiest countries are primarily in Europe, Latin America, and East Asia, whereas the least happy countries are largely located in South Asia and Africa.
+
+![image.png](/World-happiness/Images/image14.png)
+
+<br>
+
+## Pivot table to get information
+
+![image.png](/World-happiness/Images/image16.png)
+
+<br>
+
+![image.png](/World-happiness/Images/image17.png)
+
+<br>
+
+![image.png](/World-happiness/Images/image18.png)
