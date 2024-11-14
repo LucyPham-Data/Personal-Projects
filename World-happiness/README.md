@@ -114,6 +114,12 @@ After verifying that no null values remained, I imported the dataset into SQL Se
 
 <br>
 
+<p>These visuals showcase six countries, each representing a different region. The bar chart displays each country's happiness score over the years, while the line chart illustrates their ranking over time (with lower values indicating higher ranks). These charts highlight that a country’s happiness score alone does not determine its global ranking. For example, Germany's score remained steady over the decade, yet its rank dropped below 20 by 2024. Canada similarly experienced a gradual decline in ranking despite relatively stable happiness scores. In contrast, countries like Kenya and Afghanistan show greater fluctuations in their rankings over the period.
+
+![image.png](/World-happiness/Images/image15.png)
+
+<br>
+
 ## Pivot table to get information
 
 Ranking by region.
@@ -136,4 +142,4 @@ Elements over the year.
 
 ## Conclusion
 
-<p>The World Happiness Report offers a compelling view of global happiness trends, highlighting how GDP per capita, social support, healthy life expectancy, and personal freedoms contribute to higher happiness scores across countries. Nations with strong economic foundations and social support, such as those in Europe, East Asia and Latin America, consistently rank among the happiest. Conversely, countries in regions like South Asia and Africa, often facing greater economic and social challenges, appear more frequently among the least happy.
+<p>The World Happiness Report offers valuable insights into the factors influencing global happiness across different regions. The analysis reveals a strong correlation between happiness and elements like GDP per capita, social support, healthy life expectancy, and freedom to make life choices. However, it also highlights that higher happiness scores don’t necessarily translate into top rankings; even countries with stable scores, like Germany and Canada, saw their ranks decline over time. Conversely, countries with fluctuating scores, such as Kenya and Afghanistan, experienced notable shifts in their global positions. This underscores that while economic and social support factors are essential, other dynamics also play crucial roles in determining happiness and rank stability across nations.
