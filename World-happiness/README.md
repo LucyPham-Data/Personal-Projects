@@ -116,12 +116,18 @@ After verifying that no null values remained, I imported the dataset into SQL Se
 
 ## Pivot table to get information
 
+Ranking by region
+
 ![image.png](/World-happiness/Images/image16.png)
 
 <br>
 
+Average Happiness score by regions
+
 ![image.png](/World-happiness/Images/image17.png)
 
 <br>
+
+Elements over the year.
 
 ![image.png](/World-happiness/Images/image18.png)
