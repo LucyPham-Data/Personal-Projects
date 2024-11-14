@@ -116,13 +116,13 @@ After verifying that no null values remained, I imported the dataset into SQL Se
 
 ## Pivot table to get information
 
-Ranking by region
+Ranking by region.
 
 ![image.png](/World-happiness/Images/image16.png)
 
 <br>
 
-Average Happiness score by regions
+Average Happiness score by regions.
 
 ![image.png](/World-happiness/Images/image17.png)
 
@@ -131,3 +131,9 @@ Average Happiness score by regions
 Elements over the year.
 
 ![image.png](/World-happiness/Images/image18.png)
+
+<br>
+
+## Conclusion
+
+<p>The World Happiness Report offers a compelling view of global happiness trends, highlighting how GDP per capita, social support, healthy life expectancy, and personal freedoms contribute to higher happiness scores across countries. Nations with strong economic foundations and social support, such as those in Europe, East Asia and Latin America, consistently rank among the happiest. Conversely, countries in regions like South Asia and Africa, often facing greater economic and social challenges, appear more frequently among the least happy.
