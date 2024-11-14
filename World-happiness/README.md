@@ -147,4 +147,4 @@ Elements over the year.
 <br>
 
 ## Reference
-World Happiness Report Data Dashboard. [World Happiness Report]. (https://worldhappiness.report/data/)
+World Happiness Report Data Dashboard. [World Happiness Report](https://worldhappiness.report/data/)
