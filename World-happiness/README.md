@@ -143,3 +143,8 @@ Elements over the year.
 ## Conclusion
 
 <p>The World Happiness Report offers valuable insights into the factors influencing global happiness across different regions. The analysis reveals a strong correlation between happiness and elements like GDP per capita, social support, healthy life expectancy, and freedom to make life choices. However, it also highlights that higher happiness scores don’t necessarily translate into top rankings; even countries with stable scores, like Germany and Canada, saw their ranks decline over time. Conversely, countries with fluctuating scores, such as Kenya and Afghanistan, experienced notable shifts in their global positions. This underscores that while economic and social support factors are essential, other dynamics also play crucial roles in determining happiness and rank stability across nations.
+
+<br>
+
+## Reference
+World Happiness Report Data Dashboard. [World Happiness Report]. (https://worldhappiness.report/data/)
