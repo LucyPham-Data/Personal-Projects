@@ -73,4 +73,12 @@ After ensure that no null value is available, I imported the dataset into SQL se
 
 ## Some screenshots from the dashboard
 
+<p> Analyzing the correlations between Happiness Score and key factors—GDP per capita, Social Support, Freedom of Choice, Healthy Life Expectancy, Generosity, and Perceptions of Corruption—reveals that each of these elements has a positive correlation with happiness. This suggests that higher values in these areas generally contribute to increased happiness levels within a country.
 
+![image.png](/World-happiness/Images/image6.png)
+
+<br>
+
+<p> 
+
+![image.png](/World-happiness/Images/image7.png)
