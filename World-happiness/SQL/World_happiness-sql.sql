@@ -101,7 +101,8 @@ limit 20
 
 -- Null values have been filled by excel, continue to query using worldhappiness_filled table
 
--- Number of country has scored more than 6 in happiness by regions in 2015 - 2024.
+-- Number of country has scored more than 6 in happiness by regions in 2015 - 2024. (pie chart)
+
 select year, Region, count(country) as num_of_country
 FROM worldhappiness_filled 
 where  `Happiness score` > 6
@@ -109,16 +110,8 @@ group by year, Region
 order by year, num_of_country desc
 
 
+-- Number of country has scored less than 4.5 in happiness by regions in 2015 - 2024. (pie chart)
 
--- Average of happiness score in each region over the period
-select year, Region, round(avg(`Happiness score`),2) as avg_score
-FROM worldhappiness_filled 
-group by year, Region 
-order by year, avg_score desc
-
-
-
--- Number of country has scored less than 4.5 in happiness by regions in 2015 - 2024.
 select year, Region, count(country) as num_of_country
 FROM worldhappiness_filled 
 where  `Happiness score` < 4.5
@@ -126,14 +119,59 @@ group by year, Region
 order by year, num_of_country desc
 
 
--- Happiness score and rank over the period. Choose one country represent a region and cross region comparation
+-- Average of happiness score in each region over the period (multiple line chart)
+
+select year, Region, round(avg(`Happiness score`),2) as avg_score
+FROM worldhappiness_filled 
+group by year, Region 
+order by year, avg_score desc
+
+
+-- Happiness score and rank over the period. Choose one country represent a region and cross region comparation (line + bar chart)
+-- North America
+
 select year, `Happiness score` , `Rank` 
 from worldhappiness_filled wf 
-where country = 'United States'
+where country = 'Canada'
+
+-- Asia
+
+select year, `Happiness score` , `Rank` 
+from worldhappiness_filled wf 
+where country = 'China'
 
 
--- Average score in top 10 most/least happiness countries
+-- Africa
+
+select year, `Happiness score` , `Rank` 
+from worldhappiness_filled wf 
+where country = 'Kenya'
+
+
+-- South America
+
+select year, `Happiness score` , `Rank` 
+from worldhappiness_filled wf 
+where country = 'Brazil'
+
+
+-- Europe
+
+select year, `Happiness score` , `Rank` 
+from worldhappiness_filled wf 
+where country = 'Germany'
+
+
+-- East Asia
+
+select year, `Happiness score` , `Rank` 
+from worldhappiness_filled wf 
+where country = 'afghanistan'
+
+
+-- Average score in top 10 most/least happiness countries (bar chart)
 -- least happiness
+
 select country as unhappy_country, round(avg(`Happiness score`), 2) as avg_happiness_score
 from worldhappiness_filled wf 
 group by Country 
@@ -143,6 +181,7 @@ limit 10
 
 
 -- most happiness
+
 select country as happy_country, round(avg(`Happiness score`), 2) as avg_happiness_score
 from worldhappiness_filled wf 
 group by Country 
@@ -151,5 +190,6 @@ order by avg_happiness_score desc
 limit 10
 
 
-
-
+-- total count of countries in the dataset
+select count(distinct country) as country, count(distinct region) as region
+from worldhappiness_filled wf 
