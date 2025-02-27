@@ -70,7 +70,17 @@ Trt: treatment indicator <br>
 
 ### Dropped duplicated columns and encoded categorical variables
 
-![image.png](/AIDS_treatments/Images/aids4.png)
+
+```python
+# encode categorical variables, drop unrelated or duplicated features 
+
+df1 = pd.get_dummies(df, columns=[‘trt’, ‘strat’]) 
+
+# dropped duplicated columns
+
+df1 = df1.drop([‘treat’,’str2′], axis=1)
+```
+<br>
 
 ### Feature scaling and feature selection
 <p> Most of our input variables are binary and categorical, and the output variable is also binary. Hence, we selected the chi-squared statistical test for feature selection.
@@ -104,8 +114,33 @@ Trt: treatment indicator <br>
 
 <br>
 
-![image.png](/AIDS_treatments/Images/aids6.png)
+```python
+# Feature scaling
+from sklearn.preprocessing import StandardScaler
 
+# Initialize the StandardScaler
+scaler = StandardScaler()
+
+# Fit the scaler on the training data and transform both the training and testing data
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+from sklearn.linear_model import LogisticRegression
+
+log_reg = LogisticRegression(penalty='l1', solver='liblinear', max_iter=1000) 
+log_reg.fit(X_train_scaled, y_train)
+
+# Make predictions
+y_pred = log_reg.predict(X_test_scaled)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+print(confusion_matrix(y_test, y_pred))
+print("Classification Report:")
+print(classification_report(y_test, y_pred))
+```
+<br>
 
 ### Logistic Regression Evaluation
 
