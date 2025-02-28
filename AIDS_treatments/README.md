@@ -124,6 +124,11 @@ scaler = StandardScaler()
 # Fit the scaler on the training data and transform both the training and testing data
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
+```
+
+<br>
+
+```python
 
 from sklearn.linear_model import LogisticRegression
 
@@ -148,10 +153,179 @@ print(classification_report(y_test, y_pred))
 
 <br>
 
+### Investigate the coefficient of the treatment
+
+```python
+import pandas as pd
+
+# Retrieve the coefficient values
+coefficients = log_reg.coef_[0]
+
+# Create a DataFrame with feature names and coefficients
+coeff_df = pd.DataFrame({'Feature': X_train.columns, 'Coefficient': coefficients})
+
+# Sort the DataFrame by the absolute value of the coefficients in descending order
+coeff_df['Absolute Coefficient'] = coeff_df['Coefficient'].abs()
+coeff_df = coeff_df.sort_values(by='Absolute Coefficient', ascending=False)
+
+# Print the coefficients in a DataFrame
+print(coeff_df)
+```
+
 ![image.png](/AIDS_treatments/Images/aids8.png)
 
 <p> The top five features with the highest coefficients contribute to the logistic regression model. While our goal is to identify the most effective treatment, the low coefficient values make it challenging to determine which treatment is the best.
 
 <br>
 
-## Random Forest Model
+## Random Forest Classifier
+
+<p> Since logistic regression does not provide a clear determination of which treatment is superior, we opted for a more robust model: Random Forest.
+
+<p> The Random Forest classifier includes several hyperparameters that require tuning for optimal performance. To achieve this, we employed GridSearchCV to identify the best parameter combinations.
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+
+param_grid = {
+    'n_estimators': [150,200],   # Number of trees in the forest
+    'max_depth': [None, 10, 20],       # Maximum depth of the trees
+    'min_samples_split': [2],   # Minimum number of samples required to split an internal node
+    'min_samples_leaf': [1]      # Minimum number of samples required to be at a leaf node
+}
+```
+
+Best Parameters: {'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}  
+
+<br>
+
+```python
+# Create a RandomForestClassifier
+rf_classifier = RandomForestClassifier(random_state=42)
+
+# Create a GridSearchCV object
+grid_search = GridSearchCV(estimator=rf_classifier, param_grid=param_grid, cv=5, scoring='accuracy', n_jobs=-1)
+
+# Perform grid search on the training data
+grid_search.fit(X_train_scaled, y_train)
+
+# Print the best parameters found by grid search
+print("Best Parameters:", grid_search.best_params_)
+
+# Print the best cross-validation score found by grid search
+print("Best Cross-Validation Score:", grid_search.best_score_)
+
+# Get the best model
+best_classifier = grid_search.best_estimator_
+
+# Make predictions on the test set using the best model
+y_pred = best_classifier.predict(X_test_scaled)
+
+# Evaluate the best model
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+print("Classification Report:")
+print(classification_report(y_test, y_pred))
+```
+
+Best Cross-Validation Score: 0.8953881301894192  
+Accuracy: 0.8691588785046729
+
+<br>
+
+### Random Forest Evaluation
+
+![image.png](/AIDS_treatments/Images/aids9.png)
+
+The model achieved an accuracy of 0.87, slightly outperforming logistic regression above. A classification report revealed similar overall performance to logistic regression, with the model excelling in predicting class 0, showing high precision, recall, and F1 scores. However, its performance in identifying class 1 (failure) remains limited. Next, we will analyze the impact of different treatments by evaluating feature importance scores.
+
+<br>
+
+### Feature importance
+
+Unlike Logistic Regression, which relies on coefficient scores, Random Forest evaluates feature importance to determine the impact of different variables. The model’s strong predictive performance is largely influenced by factors such as time to failure or censoring and post-treatment white blood cell count (cd420).
+
+The treatment options (trt_0, trt_1, trt_2) show relatively low and similar importance, with none standing out as a key predictor. We also trained a Naïve Bayes model, but its performance was comparable to that of Random Forest and Logistic Regression, so we chose not to include it.
+
+![image.png](/AIDS_treatments/Images/aids10.png)
+
+<br>
+
+Rather than testing additional models, we are now considering whether treatment effectiveness varies across different age groups. Our next step will be to conduct a subgroup analysis based on patient age.
+
+<br>
+
+## Subgroup Analysis
+
+First, we divided the patients into five distinct age groups.
+
+```python
+# Define age groups based on specified ranges
+def get_age_group(age):
+    if age <= 18:
+        return '0-18'
+    elif 19 <= age <= 30:
+        return '19-30'
+    elif 31 <= age <= 40:
+        return '31-40'
+    elif 41 <= age <= 50:
+        return '41-50'
+    else:
+        return 'above 50'
+
+# Apply age group function to create a new column 'age_group' and drop the age column
+X['age_group'] = X['age'].apply(get_age_group)
+X = X.drop(['age'], axis=1)   
+X['age_group']
+```
+
+<br>
+
+We ran the Random Forest model for each age group to investigate the feature importance within these different segments.
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+age_groups = ['age_group_0-18', 'age_group_19-30', 'age_group_31-40', 'age_group_41-50', 'age_group_above_50']
+
+# Train and evaluate Random Forest for each age group
+for age_group in age_groups:
+    # Filter data for the current age group
+    subset_X = X[X[age_group] == 1]  
+    subset_y = y[X[age_group] == 1]
+    
+    X_train, X_test, y_train, y_test = train_test_split(subset_X, subset_y, test_size=0.2, random_state=42)
+    clf = RandomForestClassifier(random_state=42)
+    clf.fit(X_train, y_train)
+    
+    # Evaluate the model
+    y_pred = clf.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    
+    print(f"Age Group: {age_group}")
+    print(f"Accuracy: {accuracy}")
+
+    # Print feature importance scores in descending order
+    print(f"Feature Importance (Descending Order):")
+    feature_importance = clf.feature_importances_
+    feature_importance_sorted = sorted(zip(X_train.columns, feature_importance), key=lambda x: x[1], reverse=True)
+    for feature, importance in feature_importance_sorted:
+        print(f"{feature}: {importance}")
+    print("\n")
+```
+<br>
+
+### Result
+
+![image.png](/AIDS_treatments/Images/aids11.png)
+
+While we cannot determine which treatment is superior, we found that age is positively correlated with the model’s accuracy. As the age group increases, the model predicts the censoring indicator (cid) more accurately. This insight presents an opportunity for further improvement by incorporating additional features like white blood cell count, we may uncover deeper patterns and enhance our analysis.
+
+<br>
+
+## References
+
+- AIDS clinical trials group study 175. UCI Machine Learning Repository. (n.d.). https://www.archive.ics.uci.edu/dataset/890/aids+clinical+trials+group+study+175  
+- World Health Organization. (n.d.). HIV data and statistics. World Health Organization. https://www.who.int/teams/global-hiv-hepatitis-and-stis-programmes/hiv/strategic-information/hiv-data-and-statistics 
