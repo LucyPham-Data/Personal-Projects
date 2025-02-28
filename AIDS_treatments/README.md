@@ -107,9 +107,9 @@ For logistic regression, we will apply feature scaling. While logistic regressio
 
 ## Logistic Regression Classification
 
-<p> We will perform classification using logistic regression and apply **L1 (Lasso)** regularization to penalize less important features, enhancing model sparsity and interpretability.
+We will perform classification using logistic regression and apply **L1 (Lasso)** regularization to penalize less important features, enhancing model sparsity and interpretability.
 
-<p> Additionally, we will implement feature scaling to improve model performance. While logistic regression and neural networks are theoretically insensitive to feature scaling, it can significantly enhance convergence speed and overall efficiency in practice.
+Additionally, we will implement feature scaling to improve model performance. While logistic regression and neural networks are theoretically insensitive to feature scaling, it can significantly enhance convergence speed and overall efficiency in practice.
 
 <br>
 

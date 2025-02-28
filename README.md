@@ -18,6 +18,7 @@ In this series, I’ll be sharing some of my most exciting personal projects. Fr
 
 - [American baby name trends analysis](https://github.com/LucyPham-Data/Personal-Projects/tree/main/baby-names): Conducted an in-depth analysis of American baby name trends from 1920, identifying over 500 names that remained popular alongside current top choices.
 - [World happiness 2015 - 2024](https://github.com/LucyPham-Data/Personal-Projects/tree/main/World-happiness): Analyzed data from 173 countries across 10 regions to identify factors contributing to happiness and global rank, highlighting regional patterns and shifts in trends.
+- [AIDS treatments Analysis](https://github.com/LucyPham-Data/Personal-Projects/tree/main/AIDS_treatments): The AIDS Clinical Trials Group Study 175 examines the effectiveness of different treatment options for AIDS patients, aiming to evaluate their impact on patient survival and health outcomes.
 
 <br>
 
