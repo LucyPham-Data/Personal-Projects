@@ -80,14 +80,13 @@ df1 = pd.get_dummies(df, columns=[‘trt’, ‘strat’])
 
 df1 = df1.drop([‘treat’,’str2′], axis=1)
 ```
-<br>
 
 ### Feature scaling and feature selection
-<p> Most of our input variables are binary and categorical, and the output variable is also binary. Hence, we selected the chi-squared statistical test for feature selection.
+Most of our input variables are binary and categorical, and the output variable is also binary. Hence, we selected the chi-squared statistical test for feature selection.
 
-<p> Trt_0 appears to have a greater impact on the results, though its association is only moderate, making it inconclusive. On the other hand, Trt_3 shows little effect on the outcomes.
+**Trt_0** appears to have a greater impact on the results, though its association is only moderate, making it inconclusive. On the other hand, **Trt_3** shows little effect on the outcomes.
 
-<p> For logistic regression, we will apply feature scaling. While logistic regression is theoretically resistant to feature scaling, it can improve convergence speed and overall performance in practice.
+For logistic regression, we will apply feature scaling. While logistic regression is theoretically resistant to feature scaling, it can improve convergence speed and overall performance in practice.
 
 ![image.png](/AIDS_treatments/Images/aids5.png)
 
@@ -178,9 +177,11 @@ print(coeff_df)
 
 <br>
 
+<br>
+
 ## Random Forest Classifier
 
-<p> Since logistic regression does not provide a clear determination of which treatment is superior, we opted for a more robust model: Random Forest.
+<p> Since Logistic Regression does not provide a clear determination of which treatment is superior, we opted for a more robust model: Random Forest.
 
 <p> The Random Forest classifier includes several hyperparameters that require tuning for optimal performance. To achieve this, we employed GridSearchCV to identify the best parameter combinations.
 
@@ -196,7 +197,7 @@ param_grid = {
 }
 ```
 
-Best Parameters: {'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}  
+**Best Parameters**: {'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}  
 
 <br>
 
@@ -229,8 +230,8 @@ print("Classification Report:")
 print(classification_report(y_test, y_pred))
 ```
 
-Best Cross-Validation Score: 0.8953881301894192  
-Accuracy: 0.8691588785046729
+**Best Cross-Validation Score**: 0.8953881301894192  
+**Accuracy**: 0.8691588785046729
 
 <br>
 
@@ -238,7 +239,7 @@ Accuracy: 0.8691588785046729
 
 ![image.png](/AIDS_treatments/Images/aids9.png)
 
-The model achieved an accuracy of 0.87, slightly outperforming logistic regression above. A classification report revealed similar overall performance to logistic regression, with the model excelling in predicting class 0, showing high precision, recall, and F1 scores. However, its performance in identifying class 1 (failure) remains limited. Next, we will analyze the impact of different treatments by evaluating feature importance scores.
+The model achieved an accuracy of **0.87**, slightly outperforming logistic regression above. A classification report revealed similar overall performance to logistic regression, with the model excelling in predicting class 0, showing high precision, recall, and F1 scores. However, its performance in identifying class 1 (failure) remains limited. Next, we will analyze the impact of different treatments by evaluating feature importance scores.
 
 <br>
 
@@ -249,8 +250,6 @@ Unlike Logistic Regression, which relies on coefficient scores, Random Forest ev
 The treatment options (trt_0, trt_1, trt_2) show relatively low and similar importance, with none standing out as a key predictor. We also trained a Naïve Bayes model, but its performance was comparable to that of Random Forest and Logistic Regression, so we chose not to include it.
 
 ![image.png](/AIDS_treatments/Images/aids10.png)
-
-<br>
 
 Rather than testing additional models, we are now considering whether treatment effectiveness varies across different age groups. Our next step will be to conduct a subgroup analysis based on patient age.
 
