@@ -4,6 +4,7 @@
 
 <p> We'll use data from the United States Social Security Administration, which records first names along with the number and gender of babies given each name annually. This data spans 101 years, from 1920 through 2020, and is limited to names given to more than 5,000 American babies in a single year. </p>
 
+## Overview
 
 <br> *Table information*
 
@@ -47,9 +48,40 @@ The top female names with the highest annual counts over the 101-years period al
 
 <br>
 
+To make this visualization, I retrieved data in SQL by this query:
+```sql
+create view top_female_name as
+select b.year, b.first_name, b.num
+from usa_baby_names as b
+join (
+    select year, max(num) as max_num
+    from usa_baby_names
+    where sex = 'F'
+    group by year) as sub
+on b.year = sub.year
+and sub.max_num = b.num
+order by year desc;
+```
+
+<br>
+
 This bar chart displays the top 10 most popular first names for girls over 101 years, with Mary leading at 3.22 million babies given that name.
 
 ![image.png](/baby-names/Images/chart_8.png)
+
+<br>
+
+The query for this bar chart:
+```sql
+create view top_10_female_names as
+select rank() over(order by sum(num) desc) as name_rank, first_name, sum(num) as num
+from usa_baby_names
+where sex = 'F'
+group by first_name
+order by name_rank
+limit 10;
+```
+
 
 <br>
 
@@ -59,7 +91,38 @@ The top male names with the highest annual counts over the 101-years period also
 
 <br>
 
-This bar chart displays the top 10 most popular first names for girls over 101 years, with James leading at 4.75 million babies given that name.
+Here is the queries in SQL:
+
+```sql
+create view top_male_name as
+select b.year, b.first_name, b.num
+from usa_baby_names as b
+join (
+    select year, max(num) as max_num
+    from usa_baby_names
+    where sex = 'M'
+    group by year) as sub
+on b.year = sub.year
+and sub.max_num = b.num
+order by year desc;
+```
+
+<br>
+
+This bar chart displays the top 10 most popular first names for boys over 101 years, with James leading at 4.75 million babies given that name.
 
 ![image.png](/baby-names/Images/chart_10.png)
 
+<br>
+
+This time, instead of using SQL queries, I utilized Power BI's filter tool to extract the top 10 male first names.
+
+![image.png](/baby-names/Images/report_2.png)
+
+<br>
+
+## Conclusion
+
+The analysis of baby names in the U.S. over the past century reveals fascinating trends in naming preferences. While some names, like "Mary" and "James" maintained long-term popularity, others fluctuated due to cultural shifts, historical events, and evolving societal influences. The report highlights how names change over time, with new favorites emerging and older ones fading.
+
+By visualizing these patterns, this analysis provides valuable insights for marketers, sociologists, and parents alike. It showcases how names reflect generational identities and broader societal changes, offering a data-driven perspective on naming traditions in the U.S.
