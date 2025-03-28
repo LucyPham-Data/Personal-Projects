@@ -29,6 +29,8 @@ Although the project's core content is credited to DataCamp, I expanded it by wr
 
 Here’s the to [link](https://app.powerbi.com/view?r=eyJrIjoiZmM5NWQ5OGYtMzBhYi00YTM3LWIxNjUtMjdhNDI3NGQ0NTY0IiwidCI6ImVhOTRjOGU1LTA0YjktNGUwMS05ZWM4LWJkNTVlNDFlYjg4NSJ9) of the Power BI dashboard featuring the baby names report. This interactive dashboard allows you to explore all the names on your list.
 
+![image.png](/baby-names/Images/dashboard.png)
+
 <br>
 
 ## Some screenshots from the report:
@@ -39,22 +41,25 @@ While the dataset includes more unique female names than male names, the number 
 
 <br>
 
-The names with the highest annual counts over the 101-years period also illustrate how long each name maintained its top-ranking position.
+The top female names with the highest annual counts over the 101-years period also illustrate how long each name maintained its top-ranking position.
 
 ![image.png](/baby-names/Images/chart_7.png)
 
 <br>
 
-I prefer my daughter's first name to start with the letter H, so the bar charts display the total number of female names beginning with H in the dataset. As a result, it’s clear that most parents have chosen "Helen" for their daughters. However, the dotted line shows that the number of girls named "Helen" has gradually declined over the 101-year period.
+This bar chart displays the top 10 most popular first names for girls over 101 years, with Mary leading at 3.22 million babies given that name.
 
 ![image.png](/baby-names/Images/chart_8.png)
+
+<br>
+
+The top male names with the highest annual counts over the 101-years period also illustrate how long each name maintained its top-ranking position.
 
 ![image.png](/baby-names/Images/chart_9.png)
 
 <br>
 
-For boys, I would choose a name from the top male list (shown in the funnel chart). However, since Michael is very common, I've decided on James instead. The dotted line displays the number of babies named "James," which surged during the Baby Boomer generation (1940–1960), then declined significantly around the 2000s and has remained steady since.
-
-![image.png](/baby-names/Images/chart_4.png)
+This bar chart displays the top 10 most popular first names for girls over 101 years, with James leading at 4.75 million babies given that name.
 
 ![image.png](/baby-names/Images/chart_10.png)
+
