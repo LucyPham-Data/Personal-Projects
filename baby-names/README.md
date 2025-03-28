@@ -26,6 +26,9 @@ This project will answer some analytical questions:
 Although the project's core content is credited to DataCamp, I expanded it by writing query explanations and conclusions after every task (details in [notebook](./notebook.ipynb)), creating custom reports in Power BI and conducting further analysis on specific first names I might consider for my children.
 
 <br>
+Here’s the [link](https://app.powerbi.com/view?r=eyJrIjoiZmM5NWQ5OGYtMzBhYi00YTM3LWIxNjUtMjdhNDI3NGQ0NTY0IiwidCI6ImVhOTRjOGU1LTA0YjktNGUwMS05ZWM4LWJkNTVlNDFlYjg4NSJ9) to the Power BI dashboard featuring the baby names report. This interactive dashboard allows you to explore all the names on your list.
+
+<br>
 
 ## Some screenshots from the report:
 
