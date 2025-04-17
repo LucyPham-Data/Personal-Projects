@@ -42,7 +42,7 @@
 Through this blog, we’ll uncover patterns, compare happiness metrics across regions, and answer the questions:
 
 * Which countries are happiest, and what are the key factors driving their high rankings? 
-* How have happiness scores changed over time for individual countries?
+* How have happiness scores changed over time for developed countries?
 * Which countries consistently rank the highest and lowest in happiness? 
 * What are the top factors contributing to happiness?
 * Have any regions seen consistent improvements in happiness scores?
@@ -72,53 +72,71 @@ After verifying that no null values remained, I imported the dataset into SQL Se
 
 ## Some screenshots from the dashboard
 
-<p> Analyzing the correlations between Happiness Score and key factors—GDP per capita, Social Support, Freedom of Choice, Healthy Life Expectancy, Generosity, and Perceptions of Corruption—reveals that each of these elements has a positive correlation with happiness. This suggests that higher values in these areas generally contribute to increased happiness levels within a country.
-
-![image.png](/World-happiness/Images/image6.png)
+Link to the report [here](https://app.powerbi.com/view?r=eyJrIjoiNmM1YTVjNjMtZjFjZC00MmE0LTllZWItYmRiYzA5MzYyMmQwIiwidCI6ImVhOTRjOGU1LTA0YjktNGUwMS05ZWM4LWJkNTVlNDFlYjg4NSJ9 ).
 
 <br>
 
-<p> These are the top 10 happiest countries globally, each column shows an average happiness score above 7 out of 10. Below, a bar chart shows the 10 least happy countries, where average scores fall below 4 out of 10. 
+The report consists of two dashboards. The first dashboard highlights the top 10 happiest countries and the 10 least happy ones, along with regional insights showing the percentage distribution of happy nations by region. Two buttons on the left allow users to navigate to the next report.
+
+![image.png](/World-happiness/Images/image6.png)
+
+The second dashboard is interactive, allowing users to click on each country on the map to view its happiness score and rank in 2024. It also highlights the correlation between happiness scores and key factors influencing national well-being. 
 
 ![image.png](/World-happiness/Images/image7.png)
 
 <br>
 
-<p> The world map illustrates levels of happiness: green for happy, yellow for neutral, and red for unhappy areas.
+<p> The top 10 happiest countries are shown in a green bar chart, each with an average happiness score above 7 out of 10. Finland ranked first with a score of 7.7, followed by Denmark at 7.6. Israel and Australia both scored 7.2, placing 9th and 10th respectively.
+
+In contrast, the bottom bar chart displays the 10 least happy countries, all with average scores below 4. Afghanistan ranked last with a score of 2.9, reflecting the impact of ongoing conflict, extreme poverty, and restrictions on women’s rights.
+
+<br>
 
 ![image.png](/World-happiness/Images/image8.png)
 
-<br>
-
-<p> Canada, where I currently live, ranks 15th among the world's happiest countries as of 2024.
+<p> The pie chart displays the distribution of happy countries by region, revealing that the happiest and wealthiest nations are mainly located in Europe, Latin America, and East Asia. In contrast, the least happy countries tend to be in regions not prominently represented in the chart, such as South Asia and Africa.
 
 ![image.png](/World-happiness/Images/image9.png)
 
+<br> 
+
+The bar chart shows each country's happiness score over time, while the line chart tracks changes in their global ranking using an inverted scale. These visuals emphasize that happiness scores alone don't determine a country’s rank—for instance, the country in the screenshot maintained a steady score, yet its ranking declined gradually over the years.
+
+![image.png](/World-happiness/Images/image10.png)
+
 <br>
 
-<p> Vietnam, my home country, ranks 54th and is considered a happy country according to 2024 data.
+<p> Analyzing the correlations between the Happiness Score and key factors such as GDP per capita, Social Support, Freedom of Choice, Healthy Life Expectancy, Generosity, and Perceptions of Corruption reveals meaningful insights. When each of these elements shows a positive correlation with happiness, it suggests that higher values in these areas generally contribute to greater happiness levels within a country. In contrast, a negative correlation would indicate that as the value of a particular factor increases, happiness tends to decrease, highlighting potential areas where improvements may not necessarily lead to better well-being or might even have adverse effects.
 
-![image.png](/World-happiness/Images/image13.png)
+
+![image.png](/World-happiness/Images/image11.png)
 
 <br>
 
-<p>Afghanistan, the country-wide war ended in 2021 ranked 143th according to 2024 data.
+### Screenshots of some countries from the dashboard
+
+Vietnam, my home country, ranks 54th and is considered a happy nation according to 2024 data. Its rising happiness score over the years reflects improvements in life expectancy and economic development.
 
 ![image.png](/World-happiness/Images/image12.png)
 
 <br>
 
-<p> Counts of happy countries by region are shown in the left pie chart, while the right pie chart displays counts of the least happy countries. These visuals highlight that the happiest and wealthiest countries are primarily in Europe, Latin America, and East Asia, whereas the least happy countries are largely located in South Asia and Africa.
+Canada, where I currently live, ranks 15th among the world's happiest countries in 2024. Over the past decade, both its happiness score and rank have gradually declined, influenced by negative trends in key factors like GDP per capita, social support, and freedom of choice.
+
+![image.png](/World-happiness/Images/image13.png)
+
+<br>
+
+India's ranking has fluctuated over the past 10 years, showing no clear trend in the correlation between key factors and its happiness score, indicating a complex relationship between these variables.
 
 ![image.png](/World-happiness/Images/image14.png)
 
 <br>
 
-<p>These visuals showcase six countries, each representing a different region. The bar chart displays each country's happiness score over the years, while the line chart illustrates their ranking over time (with lower values indicating higher ranks). These charts highlight that a country’s happiness score alone does not determine its global ranking. For example, Germany's score remained steady over the decade, yet its rank dropped below 20 by 2024. Canada similarly experienced a gradual decline in ranking despite relatively stable happiness scores. In contrast, countries like Kenya and Afghanistan show greater fluctuations in their rankings over the period.
+Yemen is an example of an unhappy country, with its ranking fluctuating over the past decade. In 2024, key factors like GDP per capita, social support, and healthy life expectancy remained low, indicating ongoing challenges to national well-being.
 
 ![image.png](/World-happiness/Images/image15.png)
 
-<br>
 
 ## Pivot table to get information
 
@@ -142,7 +160,11 @@ Elements over the year.
 
 ## Conclusion
 
-<p>The World Happiness Report offers valuable insights into the factors influencing global happiness across different regions. The analysis reveals a strong correlation between happiness and elements like GDP per capita, social support, healthy life expectancy, and freedom to make life choices. However, it also highlights that higher happiness scores don’t necessarily translate into top rankings; even countries with stable scores, like Germany and Canada, saw their ranks decline over time. Conversely, countries with fluctuating scores, such as Kenya and Afghanistan, experienced notable shifts in their global positions. This underscores that while economic and social support factors are essential, other dynamics also play crucial roles in determining happiness and rank stability across nations.
+<p>The world's happiest countries in 2024 include Finland, Denmark, and Iceland—nations that consistently rank high due to strong GDP per capita, social support, freedom of choice, and healthy life expectancy. 
+
+<p> Developed countries have seen relatively stable happiness scores over the past decade, though some, like Canada and Germany, have experienced slight declines in rankings despite steady scores. At the opposite end, countries like Afghanistan and Yemen remain among the least happy, often due to low economic performance, poor healthcare, and weak social systems. 
+
+<p>Across all nations, key contributors to happiness are social support, economic stability, personal freedom, and health. Regions such as Latin America and parts of East Asia have shown steady improvement, reflecting positive developments in these areas. 
 
 <br>
 
